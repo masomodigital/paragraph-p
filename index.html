@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning HTML - Paragraph Tag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 92px;
+            height: 84px;
+        }
+        .green-heading {
+            color: green;
+        }
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            max-width: 500px;
+        }
+        .check-button, .run-button, .try-again-button, .more-lessons-button, .answers-button {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        .check-button {
+            background-color: blue;
+            color: white;
+        }
+        .try-again-button {
+            background-color: black;
+            color: white;
+        }
+        .more-lessons-button {
+            background-color: green;
+            color: white;
+        }
+        .run-button {
+            background-color: green;
+            color: white;
+        }
+        .answers-button {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Image -->
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTmvbQ8PO3QEmNBLuNDGJsOEha8rictP5-rmbG0qYp5qQe3QMEhoogK84OdxPgNB5iwytY-lpQT7E7AY4kpvmMGqK6CUrAHaXXhOj7CjXvKSu71HjYyy9NQ_Oh4CuCC_l97lDW3A9HF2eU670xt5mv83zx2OqCG_Is4zPpdYJ4JUaM14-2AZyEXOBktJE/w92-h84/logo.png" alt="Logo">
+
+    <!-- Lesson Title -->
+    <h1>Learning HTML: Understanding the Paragraph Tag (<code>&lt;p&gt;</code>)</h1>
+
+    <!-- Introduction -->
+    <h2 class="green-heading">Introduction</h2>
+    <p>Welcome to the lesson on the <code>&lt;p&gt;</code> tag! The paragraph tag is one of the most commonly used tags in HTML, allowing you to create blocks of text in your webpage.</p>
+
+    <!-- Explanation -->
+    <h2 class="green-heading">Explanation</h2>
+    <p>The <code>&lt;p&gt;</code> tag defines a paragraph of text. When you place your text between <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code>, the text will be displayed as a block on your webpage, separated from other elements.</p>
+
+    <!-- Example -->
+    <h2 class="green-heading">Example</h2>
+    <p>Let’s see an example in code:</p>
+
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Paragraph&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;This is my first paragraph!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p>When you run this code, you'll see "This is my first paragraph!" appear as a block of text on the page.</p>
+
+    <h2 class="green-heading">Try It Yourself!</h2>
+    <p>Type the code below and click "Run" to see how it works:</p>
+    <textarea id="codeInput" rows="8" placeholder="Write your code here...">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Paragraph&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;This is my first paragraph!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+    <br>
+    <button class="run-button" onclick="runCode()">Run</button>
+
+    <h2>Result:</h2>
+    <iframe id="resultFrame" style="width: 100%; height: 200px; border: 1px solid #ccc;"></iframe>
+
+    <script>
+        function runCode() {
+            var code = document.getElementById("codeInput").value;
+            var iframe = document.getElementById("resultFrame");
+            iframe.contentWindow.document.open();
+            iframe.contentWindow.document.write(code);
+            iframe.contentWindow.document.close();
+        }
+
+        function checkAnswer(exerciseNumber) {
+            var userAnswer = document.getElementById("userAnswer" + exerciseNumber).value.trim();
+            var correctAnswer = "";
+            var resultElement = document.getElementById("result" + exerciseNumber);
+
+            switch (exerciseNumber) {
+                case 1:
+                    correctAnswer = "<p>HTML is fun!</p>";
+                    break;
+                case 2:
+                    correctAnswer = "<p>Coding is creative!</p>";
+                    break;
+                case 3:
+                    correctAnswer = "<p>Practice makes perfect!</p>";
+                    break;
+                case 4:
+                    correctAnswer = "<p>Learning HTML is easy!</p>";
+                    break;
+                case 5:
+                    correctAnswer = "<p>I love coding!</p>";
+                    break;
+            }
+
+            if (userAnswer === correctAnswer) {
+                resultElement.innerHTML = "<p style='color: green;'>Congratulations! That's correct.</p>";
+                document.getElementById("tryAgain" + exerciseNumber).style.display = "none";
+            } else {
+                resultElement.innerHTML = "<p style='color: red;'>Oops! That's not correct. Please try again.</p>";
+                document.getElementById("tryAgain" + exerciseNumber).style.display = "inline-block";
+            }
+        }
+
+        function tryAgain(exerciseNumber) {
+            document.getElementById("userAnswer" + exerciseNumber).value = "";
+            document.getElementById("result" + exerciseNumber).innerHTML = "";
+            document.getElementById("tryAgain" + exerciseNumber).style.display = "none";
+        }
+
+        function showAnswers() {
+            var answers = `<p>Exercise 1: <code>&lt;p&gt;HTML is fun!&lt;/p&gt;</code></p>
+                            <p>Exercise 2: <code>&lt;p&gt;Coding is creative!&lt;/p&gt;</code></p>
+                            <p>Exercise 3: <code>&lt;p&gt;Practice makes perfect!&lt;/p&gt;</code></p>
+                            <p>Exercise 4: <code>&lt;p&gt;Learning HTML is easy!&lt;/p&gt;</code></p>
+                            <p>Exercise 5: <code>&lt;p&gt;I love coding!&lt;/p&gt;</code></p>`;
+            document.getElementById("answersSection").innerHTML = answers;
+        }
+    </script>
+
+    <!-- Exercise 1 -->
+    <div id="exercise1" class="exercise-container">
+        <h3 class="green-heading">Exercise 1:</h3>
+        <p>Create a <code>&lt;p&gt;</code> tag with the text "HTML is fun!".</p>
+        <textarea id="userAnswer1" rows="4" cols="50" placeholder="Write your code here..."></textarea>
+        <br><br>
+        <button class="check-button" onclick="checkAnswer(1)">Check Now</button>
+        <button id="tryAgain1" class="try-again-button" onclick="tryAgain(1)">Try Again</button>
+        <div id="result1" style="margin-top: 10px;"></div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div id="exercise2" class="exercise-container">
+        <h3 class="green-heading">Exercise 2:</h3>
+        <p>Create a <code>&lt;p&gt;</code> tag with the text "Coding is creative!".</p>
+        <textarea id="userAnswer2" rows="4" cols="50" placeholder="Write your code here..."></textarea>
+        <br><br>
+        <button class="check-button" onclick="checkAnswer(2)">Check Now</button>
+        <button id="tryAgain2" class="try-again-button" onclick="tryAgain(2)">Try Again</button>
+        <div id="result2" style="margin-top: 10px;"></div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div id="exercise3" class="exercise-container">
+        <h3 class="green-heading">Exercise 3:</h3>
+        <p>Create a <code>&lt;p&gt;</code> tag with the text "Practice makes perfect!".</p>
+        <textarea id="userAnswer3" rows="4" cols="50" placeholder="Write your code here..."></textarea>
+        <br><br>
+        <button class="check-button" onclick="checkAnswer(3)">Check Now</button>
+        <button id="tryAgain3" class="try-again-button" onclick="tryAgain(3)">Try Again</button>
+        <div id="result3" style="margin-top: 10px;"></div>
+    </div>
+
+    <!-- Exercise 4 -->
+    <div id="exercise4" class="exercise-container">
+        <h3 class="green-heading">Exercise 4:</h3>
+        <p>Create a <code>&lt;p&gt;</code> tag with the text "Learning HTML is easy!".</p>
+        <textarea id="userAnswer4" rows="4" cols="50" placeholder="Write your code here..."></textarea>
+        <br><br>
+        <button class="check-button" onclick="checkAnswer(4)">Check Now</button>
+        <button id="tryAgain4" class="try-again-button" onclick="tryAgain(4)">Try Again</button>
+        <div id="result4" style="margin-top: 10px;"></div>
+    </div>
+
+    <!-- Exercise 5 -->
+    <div id="exercise5" class="exercise-container">
+        <h3 class="green-heading">Exercise 5:</h3>
+        <p>Create a <code>&lt;p&gt;</code> tag with the text "I love coding!".</p>
+        <textarea id="userAnswer5" rows="4" cols="50" placeholder="Write your code here..."></textarea>
+        <br><br>
+        <button class="check-button" onclick="checkAnswer(5)">Check Now</button>
+        <button id="tryAgain5" class="try-again-button" onclick="tryAgain(5)">Try Again</button>
+        <div id="result5" style="margin-top: 10px;"></div>
+    </div>
+
+    <!-- View Answers Button -->
+    <button class="answers-button" onclick="showAnswers()">View Answers</button>
+    <div id="answersSection" style="margin-top: 20px;"></div>
+
+    <!-- More Lessons Button -->
+    <button class="more-lessons-button" onclick="window.location.href='https://sites.google.com/view/libsignin/home'">More Lessons</button>
+
+</body>
+</html>
